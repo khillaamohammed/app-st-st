@@ -23,11 +23,19 @@ def nettoyer_adresse(txt):
 def similarite(a, b):
     return SequenceMatcher(None, str(a), str(b)).ratio() * 100
 
-def load_dbf(file):
-    dbf = DBF(file, load=True)
-    df = pd.DataFrame(iter(dbf))
-    return df
+import tempfile
+from dbfread import DBF
+import pandas as pd
 
+def load_dbf(uploaded_file):
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".dbf") as tmp:
+        tmp.write(uploaded_file.read())
+        tmp_path = tmp.name
+
+    dbf = DBF(tmp_path, load=True)
+    df = pd.DataFrame(iter(dbf))
+
+    return df
 def trouver_code_st_valide(code_st, id_imb_set):
     code_st = str(code_st).strip().upper()
 
