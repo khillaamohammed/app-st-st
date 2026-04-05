@@ -8,7 +8,7 @@ from difflib import SequenceMatcher
 # CONFIG
 # ---------------------------
 st.set_page_config(page_title="ST vs STIT", layout="wide")
-st.title("🔍 Analyse ST / STIT")
+st.title(" Analyse ST / STIT")
 
 # ---------------------------
 # FONCTIONS UTILES
