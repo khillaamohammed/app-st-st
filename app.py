@@ -1,5 +1,5 @@
 import pandas as pd
-from google.colab import files
+
 from dbfread import DBF
 import unicodedata
 import re
