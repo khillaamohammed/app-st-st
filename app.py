@@ -46,7 +46,7 @@ def normaliser_numero(x):
 # ---------------------------
 # INTERFACE STREAMLIT
 # ---------------------------
-st.title("🔍 Analyse ST / STIT (Streamlit Cloud)")
+st.title("Analyse ST / STIT (Streamlit Cloud)")
 
 st_file = st.file_uploader("Upload ST (.dbf)", type=["dbf"])
 choix = st.selectbox("Complétude", ["1", "2"])
