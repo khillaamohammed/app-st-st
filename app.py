@@ -13,6 +13,21 @@ def nettoyer_texte(texte):
     texte = unicodedata.normalize('NFKD', texte).encode('ascii','ignore').decode('utf-8')
     return texte.strip()
 
+def normaliser_numero(num):
+    num = str(num).lower().strip()
+
+    # enlever espaces
+    num = num.replace(" ", "")
+
+    # harmonisation des suffixes
+    num = num.replace("bis", "b")
+    num = num.replace("ter", "t")
+
+    # ex: 12-b → 12b
+    num = re.sub(r'[^0-9a-z]', '', num)
+
+    return num
+
 def nettoyer_adresse_stit(texte):
     texte = str(texte).lower()
     texte = unicodedata.normalize('NFKD', texte).encode('ascii', 'ignore').decode('utf-8')
